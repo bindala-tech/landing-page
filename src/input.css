@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Pasang Font Google di paling atas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+@theme {
+  /* Di v4, kustomisasi langsung di dalam blok @theme */
+  --font-sans: "Inter", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  /* Warna Tema Berdasarkan Logo Bindala */
+  --color-primary: #323B60;    /* Indigo Navy Utama dari Logo */
+  --color-secondary: #4B548B;  /* Slate Blue aksen dari Monogram 'I' */
+  --color-dark: #1D233A;       /* Dark Indigo untuk teks judul / dark section */
+  --color-surface: #F3F6FA;    /* Soft Ice Slate untuk background section */
+  --color-brand: #323B60;      /* Warna Brand Utama */
+  --color-brand-light: #EEF2F8;/* Warna latar terang elemen aktif/hover */
+}
