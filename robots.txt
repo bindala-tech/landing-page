@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bindala.tech/sitemap.xml
+Sitemap: https://bindala.my.id/sitemap.xml
