@@ -1,17 +1,96 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bindala Tech - Jasa Pembuatan Website Profesional</title>
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Bindala Tech - Jasa Pembuatan Website Profesional & Eksklusif</title>
+    <meta
+      name="title"
+      content="Bindala Tech - Jasa Pembuatan Website Profesional & Eksklusif"
+    />
+    <meta
+      name="description"
+      content="Jasa pembuatan website profesional, company profile, toko online, dan web apps di Banjarnegara & Indonesia. Desain modern, cepat, SEO-friendly, dan bergaransi bersama Bindala Tech."
+    />
+    <meta
+      name="keywords"
+      content="jasa pembuatan website, jasa buat website, web development banjarnegara, landing page profesional, buat website murah, bindala tech"
+    />
+    <meta name="author" content="Bindala Solusi Teknologi" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://bindala.tech/" />
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bindala.tech/" />
+    <meta
+      property="og:title"
+      content="Bindala Tech - Jasa Pembuatan Website Profesional & Eksklusif"
+    />
+    <meta
+      property="og:description"
+      content="Transformasi digital bisnis Anda dengan website profesional berkinerja tinggi, responsif, dan siap dongkrak kredibilitas bisnis."
+    />
+    <meta
+      property="og:image"
+      content="https://bindala.tech/dist/logo-bindala-horizontal.png"
+    />
+    <meta property="og:site_name" content="Bindala Tech" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://bindala.tech/" />
+    <meta
+      name="twitter:title"
+      content="Bindala Tech - Jasa Pembuatan Website Profesional"
+    />
+    <meta
+      name="twitter:description"
+      content="Solusi pengembangan website modern untuk UMKM dan perusahaan bersama Bindala Tech."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bindala.tech/dist/logo-bindala-horizontal.png"
+    />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="./dist/favicon-bindala.png" />
-    <link rel="stylesheet" href="../src/output.css" />
+    <link rel="apple-touch-icon" href="./dist/favicon-bindala.png" />
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="./src/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured Data (JSON-LD) for Google Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Bindala Tech (Bindala Solusi Teknologi)",
+        "image": "https://bindala.tech/dist/logo-bindala-horizontal.png",
+        "url": "https://bindala.tech/",
+        "telephone": "+6283116031192",
+        "email": "hello@bindala.tech",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Raya Rejasa",
+          "addressLocality": "Madukara, Banjarnegara",
+          "addressRegion": "Jawa Tengah",
+          "addressCountry": "ID"
+        },
+        "priceRange": "Rp 850.000 - Rp 3.500.000",
+        "description": "Jasa pengembangan website profesional, e-commerce, company profile, dan aplikasi web custom dengan desain modern dan performa tinggi.",
+        "openingHours": "Mo-Sa 08:00-18:00"
+      }
+    </script>
   </head>
   <body>
     <nav
@@ -1261,32 +1340,7 @@
       </div>
     </footer>
 
-    <script>
-      const hamburgerBtn = document.getElementById("hamburger-btn");
-      const closeBtn = document.getElementById("close-btn");
-      const sidebar = document.getElementById("sidebar");
-      const overlay = document.getElementById("overlay");
-      const sidebarLinks = document.querySelectorAll(".sidebar-link");
-
-      function openSidebar() {
-        sidebar.classList.remove("-translate-x-full");
-        overlay.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeSidebar() {
-        sidebar.classList.add("-translate-x-full");
-        overlay.classList.add("hidden");
-        document.body.style.overflow = "";
-      }
-
-      hamburgerBtn.addEventListener("click", openSidebar);
-      closeBtn.addEventListener("click", closeSidebar);
-      overlay.addEventListener("click", closeSidebar);
-
-      sidebarLinks.forEach((link) => {
-        link.addEventListener("click", closeSidebar);
-      });
-    </script>
+    <!-- Clean Architecture: Modular Script -->
+    <script src="./src/js/main.js" defer></script>
   </body>
 </html>
