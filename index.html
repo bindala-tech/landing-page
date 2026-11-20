@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -92,28 +92,43 @@
       }
     </script>
   </head>
-  <body>
+  <body
+    class="bg-white text-gray-800 antialiased selection:bg-brand selection:text-white"
+  >
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation Header -->
     <nav
-      class="sticky top-0 z-50 transition-all bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-100"
+      id="main-nav"
+      class="sticky top-0 z-50 transition-all bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100"
     >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
-          <div
-            class="font-jakarta text-xl font-black tracking-tighter text-brand"
+          <a
+            href="#home"
+            class="font-jakarta text-xl font-black tracking-tighter text-brand flex items-center gap-1.5 focus:outline-none"
           >
             BINDALA<span class="text-slate-400"> TECH.</span>
-          </div>
+          </a>
+
+          <!-- Desktop Navigation Menu -->
           <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-6">
+            <div class="ml-10 flex items-center space-x-6">
               <a
                 href="#home"
-                class="px-2 py-1 text-sm font-semibold text-gray-600 hover:text-brand transition-colors"
+                class="px-2 py-1 text-sm font-semibold text-brand hover:text-brand transition-colors"
                 >Home</a
               >
               <a
                 href="#services"
                 class="px-2 py-1 text-sm font-semibold text-gray-600 hover:text-brand transition-colors"
                 >Services</a
+              >
+              <a
+                href="#pricing"
+                class="px-2 py-1 text-sm font-semibold text-gray-600 hover:text-brand transition-colors"
+                >Pricing</a
               >
               <a
                 href="#portfolio"
@@ -134,13 +149,17 @@
             </div>
           </div>
 
+          <!-- Mobile Hamburger Button -->
           <div class="flex md:hidden">
             <button
               id="hamburger-btn"
-              class="text-gray-700 hover:text-brand transition-colors"
+              type="button"
+              aria-label="Buka Menu Navigasi"
+              aria-expanded="false"
+              class="p-2 rounded-xl text-gray-700 hover:text-brand hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-brand/20"
             >
               <svg
-                class="h-7 w-7"
+                class="h-6 w-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -148,7 +167,7 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2.5"
+                  stroke-width="2.2"
                   d="M4 6h16M4 12h16m-7 6h7"
                 ></path>
               </svg>
@@ -158,102 +177,244 @@
       </div>
     </nav>
 
+    <!-- Mobile Drawer / Sidebar Navigation -->
     <div
       id="sidebar"
-      class="fixed inset-y-0 left-0 z-100 w-72 transform bg-white shadow-2xl transition-transform duration-300 ease-in-out -translate-x-full md:hidden"
+      class="fixed inset-y-0 left-0 z-100 w-80 max-w-[85vw] transform bg-white shadow-2xl transition-transform duration-300 ease-in-out -translate-x-full md:hidden flex flex-col justify-between"
     >
-      <div class="flex h-16 items-center justify-between px-6 border-b">
-        <span class="font-jakarta text-xl font-bold text-brand"
-          >Menu Utama</span
+      <div>
+        <div
+          class="flex h-16 items-center justify-between px-6 border-b border-slate-100"
         >
-        <button
-          id="close-btn"
-          class="text-gray-400 hover:text-red-500 text-3xl"
-        >
-          &times;
-        </button>
-      </div>
-      <div class="flex flex-col space-y-2 p-6">
-        <a
-          href="#home"
-          class="sidebar-link rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand transition-all"
-          >Home</a
-        >
-        <a
-          href="#services"
-          class="sidebar-link rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand transition-all"
-          >Services</a
-        >
-        <a
-          href="#portfolio"
-          class="sidebar-link rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand transition-all"
-          >Portfolio</a
-        >
-        <a
-          href="#testimoni"
-          class="sidebar-link rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand transition-all"
-          >Testimoni</a
-        >
-        <div class="pt-4">
-          <a
-            href="#contact"
-            class="sidebar-link flex justify-center bg-brand hover:bg-secondary text-white py-4 rounded-xl font-bold transition-colors"
-            >Contact Us</a
+          <div
+            class="font-jakarta text-lg font-black tracking-tight text-brand"
           >
+            BINDALA<span class="text-slate-400"> TECH.</span>
+          </div>
+          <button
+            id="close-btn"
+            type="button"
+            aria-label="Tutup Menu Navigasi"
+            class="p-2 -mr-2 text-gray-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-1.5 p-5">
+          <a
+            href="#home"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            Home
+          </a>
+          <a
+            href="#services"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+              />
+            </svg>
+            Services
+          </a>
+          <a
+            href="#pricing"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Pricing & Paket
+          </a>
+          <a
+            href="#how-to-order"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+              />
+            </svg>
+            Alur Kerja
+          </a>
+          <a
+            href="#portfolio"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            Portfolio
+          </a>
+          <a
+            href="#testimoni"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+            Testimoni
+          </a>
+        </nav>
+      </div>
+
+      <div class="p-6 pb-6 border-t border-slate-100 bg-slate-50/60 flex flex-col gap-3">
+        <a
+          href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20ingin%20konsultasi%20pembuatan%20website"
+          target="_blank"
+          class="sidebar-link flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-4 rounded-xl font-bold shadow-md shadow-emerald-900/10 transition-all text-sm active:scale-[0.98]"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+            />
+          </svg>
+          Chat WhatsApp
+        </a>
+
+        <a
+          href="#contact"
+          class="sidebar-link flex items-center justify-center bg-brand hover:bg-secondary text-white py-3 px-4 rounded-xl font-bold transition-colors text-sm active:scale-[0.98]"
+        >
+          Form Kontak
+        </a>
+
+        <div class="text-[11px] text-gray-500 text-center pt-1.5 flex items-center justify-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          Banyumas, Jawa Tengah • Respon Cepat
         </div>
       </div>
     </div>
 
+    <!-- Backdrop Overlay -->
     <div
       id="overlay"
-      class="fixed inset-0 z-90 hidden bg-slate-900/40 backdrop-blur-sm transition-opacity md:hidden"
+      class="fixed inset-0 z-90 hidden bg-slate-900/50 backdrop-blur-sm transition-opacity md:hidden"
     ></div>
 
     <main>
+      <!-- Hero Section -->
       <section
         id="home"
-        class="relative w-full min-h-screen flex justify-center items-center px-4 overflow-hidden"
+        class="relative w-full min-h-[100dvh] flex justify-center items-center px-4 py-20 sm:py-24 md:py-32 overflow-hidden"
       >
         <div class="absolute inset-0 z-0">
           <div
-            class="absolute inset-0 bg-linear-to-b from-slate-900/90 via-slate-900/80 to-dark/90 z-10"
+            class="absolute inset-0 bg-linear-to-b from-slate-900/90 via-slate-900/85 to-dark/95 z-10"
           ></div>
           <img
             src="https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg"
             class="w-full h-full object-cover scale-105"
             alt="Hero Background"
+            loading="eager"
           />
         </div>
 
-        <div class="relative z-20 text-white text-center max-w-4xl">
+        <div class="relative z-20 text-white text-center max-w-4xl mx-auto">
           <span
-            class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-wider text-blue-400 uppercase bg-blue-400/10 border border-blue-400/20 rounded-full font-jakarta"
+            class="reveal inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs sm:text-sm font-bold tracking-wider text-blue-400 uppercase bg-blue-400/10 border border-blue-400/20 rounded-full font-jakarta"
           >
+            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
             Your Trusted Digital Partner
           </span>
 
           <h1
-            class="font-jakarta text-4xl md:text-7xl font-black leading-[1.1] tracking-tighter"
+            class="reveal delay-100 font-jakarta text-3xl sm:text-5xl md:text-7xl font-black leading-[1.15] tracking-tighter"
           >
             Transformasi Digital Bisnis Anda dengan
             <span
-              class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300"
+              class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-sky-300 to-cyan-300"
               >Platform Eksklusif.</span
             >
           </h1>
 
           <p
-            class="font-sans text-lg md:text-xl pt-8 text-slate-300 max-w-2xl mx-auto leading-relaxed"
+            class="reveal delay-200 font-sans text-base sm:text-lg md:text-xl pt-6 sm:pt-8 text-slate-300 max-w-2xl mx-auto leading-relaxed"
           >
             <span class="font-bold text-white">Bindala Tech</span> menghadirkan
             solusi pengembangan website profesional yang menggabungkan estetika
-            desain dengan teknologi terkini.
+            desain dengan teknologi terkini untuk menaikkan omzet bisnis Anda.
           </p>
 
-          <div class="mt-12 flex flex-col sm:flex-row justify-center gap-5">
+          <div
+            class="reveal delay-300 mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-5 w-full sm:w-auto px-2 sm:px-0"
+          >
             <a
               href="#how-to-order"
-              class="bg-brand hover:bg-secondary text-white px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(75,84,139,0.5)] flex items-center justify-center gap-2"
+              class="bg-white hover:bg-slate-100 text-dark px-8 sm:px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 text-center"
             >
               Mulai Konsultasi
               <svg
@@ -272,17 +433,42 @@
 
             <a
               href="#portfolio"
-              class="bg-white/5 hover:bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-full font-bold transition-all hover:border-white/40"
+              class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-8 sm:px-10 py-4 rounded-full font-bold transition-all hover:border-white/40 active:scale-95 text-center"
             >
               Lihat Portofolio
             </a>
           </div>
+
+          <!-- Trust Badges on Mobile & Desktop -->
+          <div
+            class="reveal delay-400 mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center items-center gap-6 text-xs sm:text-sm text-slate-300"
+          >
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400">★★★★★</span>
+              <span>Kepuasan 4.9/5</span>
+            </div>
+            <div class="hidden sm:inline text-slate-600">•</div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-blue-400">⚡</span>
+              <span>Load Cepat & Mobile-First</span>
+            </div>
+            <div class="hidden sm:inline text-slate-600">•</div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-emerald-400">🛡️</span>
+              <span>Garansi & Pemeliharaan</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="services" class="pt-24 bg-surface">
+      <!-- Services Section -->
+      <section id="services" class="py-20 sm:py-24 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
+          <div class="reveal text-center mb-16">
+            <span
+              class="inline-block px-3 py-1 text-xs font-bold text-brand uppercase tracking-widest bg-brand-light rounded-full mb-4"
+              >Apa yang Kami Tawarkan</span
+            >
             <h2
               class="font-jakarta text-3xl font-extrabold text-dark sm:text-5xl tracking-tight"
             >
@@ -290,23 +476,25 @@
               <span class="text-brand">Kami</span>
             </h2>
             <div class="mt-4 flex justify-center">
-              <div class="w-20 h-1.5 bg-brand rounded-full"></div>
+              <div class="w-16 h-1 bg-brand rounded-full"></div>
             </div>
-            <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-sans">
+            <p
+              class="mt-5 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-sans"
+            >
               Solusi digital menyeluruh untuk kebutuhan bisnis Anda, dirancang
               dengan teknologi mutakhir untuk hasil yang maksimal.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Service Card 1 -->
             <div
-              class="group bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:border-brand/30 hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-300 transform hover:-translate-y-2"
+              class="reveal delay-100 touch-card group bg-surface border border-slate-200/70 p-7 sm:p-9 rounded-3xl hover:bg-brand hover:border-brand hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 transform md:hover:-translate-y-1.5"
             >
               <div
-                class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-brand mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm"
+                class="w-14 h-14 bg-brand-light group-hover:bg-white/15 rounded-2xl flex items-center justify-center text-brand group-hover:text-white mb-6 transition-all duration-300"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
                   class="h-7 w-7"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -320,23 +508,27 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-jakarta text-xl font-bold mb-4 text-dark">
+              <h3
+                class="font-jakarta text-xl font-bold mb-3 text-dark group-hover:text-white transition-colors"
+              >
                 Company Profile
               </h3>
-              <p class="text-gray-500 leading-relaxed font-sans">
+              <p
+                class="text-gray-500 group-hover:text-white/80 leading-relaxed font-sans text-sm sm:text-base transition-colors"
+              >
                 Membangun kredibilitas perusahaan Anda dengan tampilan
                 profesional, elegan, dan responsif di semua perangkat.
               </p>
             </div>
 
+            <!-- Service Card 2 -->
             <div
-              class="group bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:border-brand/30 hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-300 transform hover:-translate-y-2"
+              class="reveal delay-200 touch-card group bg-surface border border-slate-200/70 p-7 sm:p-9 rounded-3xl hover:bg-brand hover:border-brand hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 transform md:hover:-translate-y-1.5"
             >
               <div
-                class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-brand mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm"
+                class="w-14 h-14 bg-brand-light group-hover:bg-white/15 rounded-2xl flex items-center justify-center text-brand group-hover:text-white mb-6 transition-all duration-300"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
                   class="h-7 w-7"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -350,23 +542,27 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-jakarta text-xl font-bold mb-4 text-dark">
+              <h3
+                class="font-jakarta text-xl font-bold mb-3 text-dark group-hover:text-white transition-colors"
+              >
                 E-Commerce
               </h3>
-              <p class="text-gray-500 leading-relaxed font-sans">
-                Toko online siap pakai dengan fitur integrasi pembayaran,
-                manajemen stok otomatis, dan kalkulasi ongkir real-time.
+              <p
+                class="text-gray-500 group-hover:text-white/80 leading-relaxed font-sans text-sm sm:text-base transition-colors"
+              >
+                Toko online siap pakai dengan integrasi pembayaran otomatis,
+                manajemen stok, dan kalkulasi ongkir real-time.
               </p>
             </div>
 
+            <!-- Service Card 3 -->
             <div
-              class="group bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:border-brand/30 hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-300 transform hover:-translate-y-2"
+              class="reveal delay-300 touch-card group bg-surface border border-slate-200/70 p-7 sm:p-9 rounded-3xl hover:bg-brand hover:border-brand hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 transform md:hover:-translate-y-1.5"
             >
               <div
-                class="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-brand mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm"
+                class="w-14 h-14 bg-brand-light group-hover:bg-white/15 rounded-2xl flex items-center justify-center text-brand group-hover:text-white mb-6 transition-all duration-300"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
                   class="h-7 w-7"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -380,170 +576,511 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-jakarta text-xl font-bold mb-4 text-dark">
+              <h3
+                class="font-jakarta text-xl font-bold mb-3 text-dark group-hover:text-white transition-colors"
+              >
                 Custom Web App
               </h3>
-              <p class="text-gray-500 leading-relaxed font-sans">
-                Sistem web kustom yang dirancang khusus dari nol untuk
-                mendigitalkan dan mempermudah operasional bisnis unik Anda.
+              <p
+                class="text-gray-500 group-hover:text-white/80 leading-relaxed font-sans text-sm sm:text-base transition-colors"
+              >
+                Sistem web kustom dari nol untuk mendigitalkan dan mempermudah
+                operasional bisnis unik Anda.
               </p>
             </div>
           </div>
         </div>
       </section>
-      <section id="pricing" class="bg-surface py-20 px-6 font-sans">
-        <div class="max-w-6xl mx-auto text-center mb-16">
+
+      <!-- Pricing Section -->
+      <section
+        id="pricing"
+        class="bg-dark py-20 sm:py-24 px-4 sm:px-6 font-sans"
+      >
+        <div class="reveal max-w-6xl mx-auto text-center mb-14">
+          <span
+            class="inline-block px-3 py-1 text-xs font-bold text-blue-300 uppercase tracking-widest bg-white/10 rounded-full mb-4"
+            >Paket Harga</span
+          >
           <h2
-            class="font-jakarta text-4xl md:text-5xl font-extrabold text-dark mb-4"
+            class="font-jakarta text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight"
           >
             Investasi Digital Terjangkau
           </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-            Solusi profesional untuk memperkuat kehadiran digital bisnis Anda
-            tanpa biaya tinggi.
+          <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+            Pilih paket yang sesuai kebutuhan bisnis Anda, tanpa biaya
+            tersembunyi.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div
+          class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start"
+        >
+          <!-- Starter Plan -->
           <div
-            class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-blue-900/5 flex flex-col transition hover:scale-105"
+            class="reveal-left delay-100 touch-card bg-white/5 border border-white/10 rounded-3xl p-7 flex flex-col hover:bg-white/10 hover:border-white/20 transition-all duration-300"
           >
-            <div class="mb-8">
-              <h3 class="font-jakarta text-2xl font-bold text-primary mb-2">
+            <div class="mb-6">
+              <h3 class="font-jakarta text-xl font-bold text-white mb-1">
                 Starter
               </h3>
-              <div class="text-3xl md:4xl font-extrabold text-dark">Rp 850.000</div>
+              <div class="text-3xl font-extrabold text-white mt-2">
+                Rp 850.000
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5">
+                UMKM & Portofolio Personal
+              </p>
             </div>
 
-            <ul class="space-y-4 mb-8 grow text-sm text-gray-700">
-              <li class="flex items-center">✓ Domain & Hosting (1 Tahun)</li>
-              <li class="flex items-center">✓ Landing Page (Single Page)</li>
-              <li class="flex items-center">✓ Desain Modern & Responsif</li>
-              <li class="flex items-center">✓ Sertifikat Keamanan SSL/HTTPS</li>
-              <li class="flex items-center">✓ Tombol WhatsApp & Sosmed</li>
-              <li class="flex items-center">✓ Maintenance (30 Hari)</li>
+            <ul class="space-y-3 mb-8 grow text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Domain & Hosting (1 Tahun)
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Landing Page (Single Page)
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Desain Modern & Responsif
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                SSL/HTTPS Keamanan
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Tombol WhatsApp & Sosmed
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Maintenance 30 Hari
+              </li>
               <li
-                class="font-semibold mt-4 text-dark border-t border-dashed pt-4"
+                class="border-t border-white/10 pt-3 mt-1 text-slate-400 text-xs"
               >
                 Renewal Tahunan: Rp 500rb-an
               </li>
             </ul>
 
-            <button
-              class="w-full py-4 rounded-xl font-bold bg-gray-100 text-dark hover:bg-primary hover:text-white transition-colors"
+            <a
+              href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20tertarik%20dengan%20Paket%20Starter%20(Rp%20850.000)"
+              target="_blank"
+              class="w-full py-3.5 text-center rounded-xl font-bold text-sm bg-white/10 border border-white/20 text-white hover:bg-white hover:text-dark transition-all active:scale-95"
             >
               Pilih Starter
-            </button>
+            </a>
           </div>
 
+          <!-- Standard Plan (Most Popular) -->
           <div
-            class="bg-primary rounded-3xl p-8 shadow-2xl shadow-primary/40 flex flex-col transform scale-105 relative z-10 border-4 border-white/20 transition hover:scale-110"
+            class="reveal-scale delay-200 touch-card bg-white rounded-3xl p-7 flex flex-col relative shadow-2xl shadow-black/40 border-2 border-white"
           >
             <div
-              class="absolute -top-5 left-1/2 -translate-x-1/2 bg-dark text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg"
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand text-white text-[11px] font-extrabold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-lg whitespace-nowrap"
             >
-              Paling Populer
+              ⭐ Paling Populer
             </div>
 
-            <div class="mb-8 text-center text-white">
-              <h3 class="font-jakarta text-2xl font-bold mb-2">Standard</h3>
-              <div class="text-3xl md:4xl font-extrabold">Rp 1.750.000</div>
-              <div class="mt-2 text-xl opacity-90">⭐⭐⭐⭐⭐</div>
+            <div class="mb-6 pt-2">
+              <h3 class="font-jakarta text-xl font-bold text-dark mb-1">
+                Standard
+              </h3>
+              <div class="text-3xl font-extrabold text-dark mt-2">
+                Rp 1.750.000
+              </div>
+              <p class="text-xs text-gray-500 mt-1.5">
+                Bisnis & Brand Profesional
+              </p>
             </div>
 
-            <ul class="space-y-4 mb-8 grow text-sm font-medium text-white/90">
-              <li class="flex items-center font-bold text-white">
-                ✓ Domain & Hosting (1 Tahun)
+            <ul class="space-y-3 mb-8 grow text-sm text-gray-700">
+              <li class="flex items-start gap-2.5 font-semibold text-dark">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Domain & Hosting (1 Tahun)
               </li>
-              <li class="flex items-center">✓ Multi-Page (Up to 5 Halaman)</li>
-              <li class="flex items-center">✓ Setup SEO Google Dasar</li>
-              <li class="flex items-center">
-                ✓ Dashboard Admin (Bisa Edit Sendiri)
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Multi-Page (Up to 5 Halaman)
               </li>
-              <li class="flex items-center">✓ Gratis 5 Artikel Bisnis</li>
-              <li class="flex items-center">✓ Optimalisasi Kecepatan Load</li>
-              <li class="flex items-center">✓ Maintenance (90 Hari)</li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Setup SEO Google Dasar
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Dashboard Admin (Edit Sendiri)
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Gratis 5 Artikel Bisnis
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Optimalisasi Kecepatan Load
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-brand mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Maintenance 90 Hari
+              </li>
               <li
-                class="font-extrabold mt-4 border-t border-white/20 pt-4 text-lg"
+                class="border-t border-slate-200 pt-3 mt-1 text-gray-500 text-xs font-semibold"
               >
                 Renewal Tahunan: Rp 750rb-an
               </li>
             </ul>
 
-            <button
-              class="w-full py-4 rounded-xl font-bold bg-white text-primary hover:bg-dark hover:text-white transition-all shadow-xl"
+            <a
+              href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20tertarik%20dengan%20Paket%20Standard%20(Rp%201.750.000)"
+              target="_blank"
+              class="w-full py-3.5 text-center rounded-xl font-bold text-sm bg-brand hover:bg-secondary text-white transition-all shadow-lg shadow-brand/30 active:scale-95"
             >
               Mulai Konsultasi
-            </button>
+            </a>
           </div>
 
+          <!-- Professional Plan -->
           <div
-            class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-blue-900/5 flex flex-col transition hover:scale-105"
+            class="reveal-right delay-300 touch-card bg-white/5 border border-white/10 rounded-3xl p-7 flex flex-col hover:bg-white/10 hover:border-white/20 transition-all duration-300"
           >
-            <div class="mb-8">
-              <h3 class="font-jakarta text-2xl font-bold text-primary mb-2">
+            <div class="mb-6">
+              <h3 class="font-jakarta text-xl font-bold text-white mb-1">
                 Professional
               </h3>
-              <div class="text-3xl md:4xl font-extrabold text-dark">Rp 3.500.000</div>
+              <div class="text-3xl font-extrabold text-white mt-2">
+                Rp 3.500.000
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5">
+                Skala Perusahaan & High Performance
+              </p>
             </div>
 
-            <ul class="space-y-4 mb-8 grow text-sm text-gray-700">
-              <li class="flex items-center">
-                ✓ Cloud Hosting High Performance
+            <ul class="space-y-3 mb-8 grow text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Cloud Hosting High Performance
               </li>
-              <li class="flex items-center">
-                ✓ Custom Design (Unlimited Page)
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Custom Design (Unlimited Page)
               </li>
-              <li class="flex items-center font-bold text-primary">
-                ✓ Advanced SEO Management
+              <li class="flex items-start gap-2.5 font-semibold text-white">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Advanced SEO Management
               </li>
-              <li class="flex items-center">✓ 10 Artikel Bisnis per Bulan</li>
-              <li class="flex items-center">
-                ✓ Email Bisnis Profesional (5 Akun)
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                10 Artikel Bisnis per Bulan
               </li>
-              <li class="flex items-center">
-                ✓ Integrasi Google Maps & Analytics
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Email Bisnis (5 Akun)
               </li>
-              <li class="flex items-center font-bold text-green-600">
-                ✓ Maintenance Selamanya
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Google Maps & Analytics
               </li>
               <li
-                class="font-semibold mt-4 text-dark border-t border-dashed pt-4"
+                class="flex items-start gap-2.5 font-semibold text-emerald-400"
+              >
+                <svg
+                  class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Maintenance Selamanya
+              </li>
+              <li
+                class="border-t border-white/10 pt-3 mt-1 text-slate-400 text-xs"
               >
                 Renewal Tahunan: Rp 1jt-an
               </li>
             </ul>
 
-            <button
-              class="w-full py-4 rounded-xl font-bold border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all"
+            <a
+              href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20tertarik%20dengan%20Paket%20Professional%20(Rp%203.500.000)"
+              target="_blank"
+              class="w-full py-3.5 text-center rounded-xl font-bold text-sm bg-white/10 border border-white/20 text-white hover:bg-white hover:text-dark transition-all active:scale-95"
             >
               Ambil Solusi Eksklusif
-            </button>
+            </a>
           </div>
         </div>
       </section>
-      <section id="how-to-order" class="py-24 bg-white overflow-hidden">
+
+      <!-- How To Order / Alur Kerja -->
+      <section
+        id="how-to-order"
+        class="py-20 sm:py-24 bg-white overflow-hidden"
+      >
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-20">
+          <div class="reveal text-center mb-16 sm:mb-20">
             <h2
-              class="font-jakarta text-3xl font-extrabold text-dark sm:text-5xl tracking-tight"
+              class="font-jakarta text-3xl sm:text-5xl font-extrabold text-dark tracking-tight"
             >
-              Alur Kerja
-              <span class="text-brand">Kami</span>
+              Alur Kerja Kami
             </h2>
-            <p class="mt-4 text-lg text-gray-600 font-sans max-w-xl mx-auto">
+            <p
+              class="mt-4 text-base sm:text-lg text-gray-500 font-sans max-w-xl mx-auto leading-relaxed"
+            >
               Wujudkan kehadiran digital bisnis Anda melalui 4 langkah mudah dan
               terintegrasi.
             </p>
           </div>
 
           <div class="relative">
+            <!-- Garis Penghubung Desktop (horizontal) -->
             <div
-              class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-blue-50"
+              class="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 bg-blue-100"
             ></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
-              <div class="text-center group">
+            <!-- Garis Penghubung Mobile (vertikal menghubungkan 1 -> 2 -> 3 -> 4) -->
+            <div
+              class="md:hidden absolute top-12 bottom-28 left-1/2 -translate-x-1/2 w-0.5 bg-blue-100"
+            ></div>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-4 gap-12 sm:gap-14 md:gap-8 lg:gap-12 relative"
+            >
+              <!-- Step 1 -->
+              <div class="reveal delay-100 text-center group">
                 <div
                   class="w-24 h-24 bg-white border-4 border-blue-100 text-brand rounded-3xl flex items-center justify-center text-3xl font-black mx-auto mb-6 relative z-10 group-hover:bg-brand group-hover:text-white group-hover:border-brand group-hover:rotate-6 transition-all duration-300 shadow-sm font-jakarta"
                 >
@@ -552,14 +1089,17 @@
                 <h3 class="font-jakarta text-xl font-bold mb-3 text-dark">
                   Konsultasi
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed px-4">
+                <p
+                  class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto px-4"
+                >
                   Konsultasikan kebutuhan spesifik bisnis Anda secara langsung
                   melalui WhatsApp.
                   <span class="text-brand font-bold">Gratis!</span>
                 </p>
               </div>
 
-              <div class="text-center group">
+              <!-- Step 2 -->
+              <div class="reveal delay-200 text-center group">
                 <div
                   class="w-24 h-24 bg-white border-4 border-blue-100 text-brand rounded-3xl flex items-center justify-center text-3xl font-black mx-auto mb-6 relative z-10 group-hover:bg-brand group-hover:text-white group-hover:border-brand group-hover:-rotate-6 transition-all duration-300 shadow-sm font-jakarta"
                 >
@@ -568,13 +1108,16 @@
                 <h3 class="font-jakarta text-xl font-bold mb-3 text-dark">
                   Deal & Kontrak
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed px-4">
+                <p
+                  class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto px-4"
+                >
                   Dapatkan penawaran harga yang kompetitif dan transparan. Jika
                   setuju, proyek Anda akan segera kami eksekusi.
                 </p>
               </div>
 
-              <div class="text-center group">
+              <!-- Step 3 -->
+              <div class="reveal delay-300 text-center group">
                 <div
                   class="w-24 h-24 bg-white border-4 border-blue-100 text-brand rounded-3xl flex items-center justify-center text-3xl font-black mx-auto mb-6 relative z-10 group-hover:bg-brand group-hover:text-white group-hover:border-brand group-hover:rotate-6 transition-all duration-300 shadow-sm font-jakarta"
                 >
@@ -583,13 +1126,16 @@
                 <h3 class="font-jakarta text-xl font-bold mb-3 text-dark">
                   Development
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed px-4">
+                <p
+                  class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto px-4"
+                >
                   Proyek Anda akan dikerjakan dengan dedikasi tinggi dan standar
                   teknis terbaik oleh tim ahli kami.
                 </p>
               </div>
 
-              <div class="text-center group">
+              <!-- Step 4 -->
+              <div class="reveal delay-400 text-center group">
                 <div
                   class="w-24 h-24 bg-white border-4 border-blue-100 text-brand rounded-3xl flex items-center justify-center text-3xl font-black mx-auto mb-6 relative z-10 group-hover:bg-brand group-hover:text-white group-hover:border-brand group-hover:-rotate-6 transition-all duration-300 shadow-sm font-jakarta"
                 >
@@ -598,7 +1144,9 @@
                 <h3 class="font-jakarta text-xl font-bold mb-3 text-dark">
                   Serah Terima
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed px-4">
+                <p
+                  class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto px-4"
+                >
                   Proyek selesai tepat waktu untuk mengakselerasi pertumbuhan
                   bisnis Anda dan memaksimalkan potensi pendapatan.
                 </p>
@@ -606,15 +1154,16 @@
             </div>
           </div>
 
-          <div class="mt-20 text-center">
+          <div class="reveal delay-300 mt-16 sm:mt-20 text-center px-4">
             <a
-              href="https://wa.me/nomor-lo"
-              class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-brand rounded-2xl hover:bg-secondary transition-all shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20 hover:-translate-y-1"
+              href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20ingin%20konsultasi%20pembuatan%20website"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-5 text-sm sm:text-lg font-bold text-white bg-dark hover:bg-brand rounded-2xl transition-all shadow-xl shadow-slate-900/15 hover:shadow-slate-900/25 hover:-translate-y-1 active:scale-95 text-center"
             >
-              Konsultasi Sekarang (Gratis!)
+              <span>Konsultasi Sekarang (Gratis!)</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 h-6 w-6"
+                class="h-4 w-4 sm:h-5 sm:w-5 shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -630,34 +1179,43 @@
           </div>
         </div>
       </section>
-      <section id="portfolio" class="py-24 bg-white">
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="py-20 sm:py-24 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
+          <div class="reveal text-center mb-16">
+            <span
+              class="inline-block px-3 py-1 text-xs font-bold text-brand uppercase tracking-widest bg-brand-light rounded-full mb-4"
+              >Karya Terbaik</span
+            >
             <h2
               class="font-jakarta text-3xl font-extrabold text-dark sm:text-5xl tracking-tight"
             >
-              Karya Unggulan
+              Portfolio
               <span class="text-brand">Bindala Tech</span>
             </h2>
-            <p class="mt-4 text-lg text-gray-600 font-sans max-w-2xl mx-auto">
-              Kami bangga dengan setiap proyek yang kami kerjakan. Inilah
-              manifestasi ide klien yang kami ubah menjadi solusi digital
-              berkelas.
+            <p
+              class="mt-4 text-base sm:text-lg text-gray-500 font-sans max-w-2xl mx-auto"
+            >
+              Setiap proyek adalah bukti nyata komitmen kami. Ide klien kami
+              wujudkan menjadi solusi digital yang berdampak.
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Portfolio 1 -->
             <div
-              class="group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-slate-400/30"
+              class="reveal delay-100 group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-slate-400/30 bg-dark"
             >
               <div class="relative h-72 overflow-hidden">
                 <img
                   src="https://repository-images.githubusercontent.com/456963513/82528385-a73f-488f-9003-513321283a6b"
                   alt="E-commerce Fashion"
+                  loading="lazy"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div
-                  class="absolute inset-0 bg-linear-to-t from-dark via-dark/40 to-transparent opacity-80 transition-opacity group-hover:opacity-90"
+                  class="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent opacity-90 transition-opacity"
                 ></div>
 
                 <span
@@ -667,21 +1225,23 @@
                 </span>
               </div>
 
-              <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white"
+              >
                 <h3
                   class="font-jakarta text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors"
                 >
                   Fashion Brand X
                 </h3>
                 <p
-                  class="text-sm text-gray-300 mb-5 line-clamp-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                  class="text-sm text-gray-300 mb-4 line-clamp-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300"
                 >
                   Platform belanja online modern dengan fokus pada pengalaman
-                  pengguna dan konversi tinggi.
+                  pengguna dan konversi penjualan tinggi.
                 </p>
                 <a
-                  href="#"
-                  class="inline-flex items-center text-secondary font-bold text-sm hover:underline"
+                  href="#contact"
+                  class="inline-flex items-center text-blue-300 font-bold text-sm hover:underline"
                 >
                   Lihat Detail
                   <svg
@@ -702,17 +1262,19 @@
               </div>
             </div>
 
+            <!-- Portfolio 2 -->
             <div
-              class="group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-slate-400/30"
+              class="reveal delay-200 group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-slate-400/30 bg-dark"
             >
               <div class="relative h-72 overflow-hidden">
                 <img
                   src="https://winstarlink.com/wp-content/uploads/2023/03/website-company-profile-adalah.jpg"
                   alt="Company Profile"
+                  loading="lazy"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div
-                  class="absolute inset-0 bg-linear-to-t from-dark via-dark/40 to-transparent opacity-80 group-hover:opacity-90"
+                  class="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent opacity-90 group-hover:opacity-90"
                 ></div>
 
                 <span
@@ -722,21 +1284,23 @@
                 </span>
               </div>
 
-              <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white"
+              >
                 <h3
                   class="font-jakarta text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors"
                 >
                   Konsultan Bisnis Global
                 </h3>
                 <p
-                  class="text-sm text-gray-300 mb-5 line-clamp-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                  class="text-sm text-gray-300 mb-4 line-clamp-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300"
                 >
-                  Website korporat yang elegan untuk meningkatkan kredibilitas
-                  dan jangkauan klien internasional.
+                  Website korporat elegan untuk meningkatkan kredibilitas dan
+                  jangkauan klien internasional.
                 </p>
                 <a
-                  href="#"
-                  class="inline-flex items-center text-secondary font-bold text-sm hover:underline"
+                  href="#contact"
+                  class="inline-flex items-center text-blue-300 font-bold text-sm hover:underline"
                 >
                   Lihat Detail
                   <svg
@@ -757,17 +1321,19 @@
               </div>
             </div>
 
+            <!-- Portfolio 3 -->
             <div
-              class="group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-slate-400/30"
+              class="reveal delay-300 group relative overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-slate-400/30 bg-dark"
             >
               <div class="relative h-72 overflow-hidden">
                 <img
                   src="https://polluxintegra.co.id/wp-content/uploads/2024/07/aplikasi-web-1024x683.jpg"
                   alt="Web App"
+                  loading="lazy"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div
-                  class="absolute inset-0 bg-linear-to-t from-dark via-dark/40 to-transparent opacity-80 group-hover:opacity-90"
+                  class="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent opacity-90 group-hover:opacity-90"
                 ></div>
 
                 <span
@@ -777,21 +1343,23 @@
                 </span>
               </div>
 
-              <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white"
+              >
                 <h3
                   class="font-jakarta text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors"
                 >
                   Event Management System
                 </h3>
                 <p
-                  class="text-sm text-gray-300 mb-5 line-clamp-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                  class="text-sm text-gray-300 mb-4 line-clamp-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300"
                 >
                   Sistem terintegrasi untuk pendaftaran, manajemen peserta, dan
                   jadwal event secara real-time.
                 </p>
                 <a
-                  href="#"
-                  class="inline-flex items-center text-secondary font-bold text-sm hover:underline"
+                  href="#contact"
+                  class="inline-flex items-center text-blue-300 font-bold text-sm hover:underline"
                 >
                   Lihat Detail
                   <svg
@@ -813,15 +1381,16 @@
             </div>
           </div>
 
-          <div class="mt-20 text-center">
+          <div class="reveal delay-300 mt-16 sm:mt-20 text-center px-4">
             <a
-              href="#"
-              class="inline-flex items-center bg-brand hover:bg-secondary text-white font-bold py-4 px-10 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-slate-900/10"
+              href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20ingin%20melihat%20katalog%20portofolio%20lainnya"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-2 bg-brand hover:bg-secondary text-white font-bold py-3.5 sm:py-4 px-6 sm:px-10 rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/10 text-sm sm:text-base text-center"
             >
-              Lihat Semua Proyek Kami
+              <span>Lihat Semua Proyek Kami</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 h-5 w-5"
+                class="h-4 w-4 sm:h-5 sm:w-5 shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -837,35 +1406,49 @@
           </div>
         </div>
       </section>
-      <section id="testimoni" class="py-24 bg-surface relative overflow-hidden">
+
+      <!-- Testimoni Section -->
+      <section
+        id="testimoni"
+        class="py-20 sm:py-24 bg-surface relative overflow-hidden"
+      >
         <div
-          class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl"
+          class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none"
         ></div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="text-center mb-16">
+          <div class="reveal text-center mb-16">
+            <span
+              class="inline-block px-3 py-1 text-xs font-bold text-brand uppercase tracking-widest bg-brand-light rounded-full mb-4"
+              >Kata Mereka</span
+            >
             <h2
               class="font-jakarta text-3xl font-extrabold text-dark sm:text-5xl tracking-tight"
             >
               Apa Kata
               <span class="text-brand">Klien Kami?</span>
             </h2>
-            <p class="mt-4 text-lg text-gray-600 font-sans max-w-2xl mx-auto">
-              Kepuasan klien adalah bahan bakar kami untuk terus berinovasi.
-              Berikut adalah pengalaman mereka bersama Bindala Tech.
+            <p
+              class="mt-4 text-base sm:text-lg text-gray-500 font-sans max-w-2xl mx-auto"
+            >
+              Kepuasan klien adalah prioritas utama kami. Berikut pengalaman
+              nyata mereka bersama Bindala Tech.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          >
+            <!-- Review 1 -->
             <div
-              class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 relative group transition-all duration-300 hover:shadow-xl hover:border-blue-200"
+              class="reveal delay-100 touch-card bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 relative group transition-all duration-300 hover:shadow-xl hover:border-brand/20 hover:-translate-y-1"
             >
               <div
-                class="absolute top-6 right-8 text-blue-50 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-6 right-7 text-brand/5 group-hover:text-brand/10 transition-colors pointer-events-none"
               >
                 <svg
-                  width="60"
-                  height="45"
+                  width="48"
+                  height="38"
                   viewBox="0 0 60 45"
                   fill="currentColor"
                 >
@@ -875,46 +1458,48 @@
                 </svg>
               </div>
 
-              <div class="flex text-amber-400 mb-6 space-x-1">
-                <span class="text-lg">★★★★★</span>
+              <div class="flex text-amber-400 mb-4">
+                <span class="text-base sm:text-lg tracking-wider">★★★★★</span>
               </div>
 
               <p
-                class="text-gray-600 leading-relaxed italic mb-8 relative z-10 font-sans"
+                class="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 relative z-10 font-sans"
               >
                 "Sangat puas dengan hasil website dari Bindala Tech. Prosesnya
                 cepat, komunikatif, dan hasilnya melampaui ekspektasi kami.
-                Sekarang traffic bisnis kami naik signifikan!"
+                Traffic bisnis kami naik signifikan!"
               </p>
 
-              <div class="flex items-center border-t border-slate-50 pt-6">
+              <div
+                class="flex items-center border-t border-slate-100 pt-5 gap-3"
+              >
                 <img
-                  class="h-14 w-14 rounded-2xl object-cover mr-4 ring-4 ring-blue-50"
+                  class="h-11 w-11 rounded-xl object-cover ring-2 ring-brand-light shrink-0"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                   alt="Budi Santoso"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 class="font-jakarta text-base font-bold text-dark">
+                  <h4 class="font-jakarta text-sm font-bold text-dark">
                     Budi Santoso
                   </h4>
-                  <p
-                    class="text-xs text-blue-500 font-bold uppercase tracking-wider"
-                  >
+                  <p class="text-xs text-brand font-semibold">
                     CEO, Tech Innovate
                   </p>
                 </div>
               </div>
             </div>
 
+            <!-- Review 2 -->
             <div
-              class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 relative group transition-all duration-300 hover:shadow-xl hover:border-blue-200"
+              class="reveal delay-200 touch-card bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 relative group transition-all duration-300 hover:shadow-xl hover:border-brand/20 hover:-translate-y-1"
             >
               <div
-                class="absolute top-6 right-8 text-blue-50 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-6 right-7 text-brand/5 group-hover:text-brand/10 transition-colors pointer-events-none"
               >
                 <svg
-                  width="60"
-                  height="45"
+                  width="48"
+                  height="38"
                   viewBox="0 0 60 45"
                   fill="currentColor"
                 >
@@ -924,46 +1509,48 @@
                 </svg>
               </div>
 
-              <div class="flex text-amber-400 mb-6 space-x-1">
-                <span class="text-lg">★★★★★</span>
+              <div class="flex text-amber-400 mb-4">
+                <span class="text-base sm:text-lg tracking-wider">★★★★★</span>
               </div>
 
               <p
-                class="text-gray-600 leading-relaxed italic mb-8 relative z-10 font-sans"
+                class="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 relative z-10 font-sans"
               >
-                "Tim Bindala Tech sangat profesional. Desainnya modern dan loading
-                website-nya sangat cepat. Partner terbaik untuk digital branding
-                perusahaan kami!"
+                "Tim Bindala Tech sangat profesional. Desainnya modern dan
+                loading website-nya sangat cepat. Partner terbaik untuk digital
+                branding perusahaan kami!"
               </p>
 
-              <div class="flex items-center border-t border-slate-50 pt-6">
+              <div
+                class="flex items-center border-t border-slate-100 pt-5 gap-3"
+              >
                 <img
-                  class="h-14 w-14 rounded-2xl object-cover mr-4 ring-4 ring-blue-50"
+                  class="h-11 w-11 rounded-xl object-cover ring-2 ring-brand-light shrink-0"
                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                   alt="Santi Wijaya"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 class="font-jakarta text-base font-bold text-dark">
+                  <h4 class="font-jakarta text-sm font-bold text-dark">
                     Santi Wijaya
                   </h4>
-                  <p
-                    class="text-xs text-blue-500 font-bold uppercase tracking-wider"
-                  >
+                  <p class="text-xs text-brand font-semibold">
                     Founder, Fashionista.id
                   </p>
                 </div>
               </div>
             </div>
 
+            <!-- Review 3 -->
             <div
-              class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 relative group transition-all duration-300 hover:shadow-xl hover:border-blue-200"
+              class="reveal delay-300 touch-card bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 relative group transition-all duration-300 hover:shadow-xl hover:border-brand/20 hover:-translate-y-1"
             >
               <div
-                class="absolute top-6 right-8 text-blue-50 opacity-10 group-hover:opacity-20 transition-opacity"
+                class="absolute top-6 right-7 text-brand/5 group-hover:text-brand/10 transition-colors pointer-events-none"
               >
                 <svg
-                  width="60"
-                  height="45"
+                  width="48"
+                  height="38"
                   viewBox="0 0 60 45"
                   fill="currentColor"
                 >
@@ -973,31 +1560,32 @@
                 </svg>
               </div>
 
-              <div class="flex text-amber-400 mb-6 space-x-1">
-                <span class="text-lg">★★★★★</span>
+              <div class="flex text-amber-400 mb-4">
+                <span class="text-base sm:text-lg tracking-wider">★★★★★</span>
               </div>
 
               <p
-                class="text-gray-600 leading-relaxed italic mb-8 relative z-10 font-sans"
+                class="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 relative z-10 font-sans"
               >
                 "Custom web app yang dibuat Bindala Tech bener-bener ngebantu
                 operasional harian kantor kami. UI-nya simpel dan gampang dipake
                 tim kami."
               </p>
 
-              <div class="flex items-center border-t border-slate-50 pt-6">
+              <div
+                class="flex items-center border-t border-slate-100 pt-5 gap-3"
+              >
                 <img
-                  class="h-14 w-14 rounded-2xl object-cover mr-4 ring-4 ring-blue-50"
+                  class="h-11 w-11 rounded-xl object-cover ring-2 ring-brand-light shrink-0"
                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                   alt="Andi Pratama"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 class="font-jakarta text-base font-bold text-dark">
+                  <h4 class="font-jakarta text-sm font-bold text-dark">
                     Andi Pratama
                   </h4>
-                  <p
-                    class="text-xs text-blue-500 font-bold uppercase tracking-wider"
-                  >
+                  <p class="text-xs text-brand font-semibold">
                     Ops Manager, Logistik Maju
                   </p>
                 </div>
@@ -1006,36 +1594,60 @@
           </div>
         </div>
       </section>
-      <section id="contact" class="py-24 bg-white relative overflow-hidden">
+
+      <!-- Contact Section -->
+      <section
+        id="contact"
+        class="py-20 sm:py-24 bg-dark relative overflow-hidden"
+      >
+        <!-- Background decorations -->
         <div
-          class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"
+          class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
+        ></div>
+        <div
+          class="absolute -bottom-32 -right-32 w-96 h-96 bg-brand/20 rounded-full blur-3xl pointer-events-none"
+        ></div>
+        <div
+          class="absolute top-20 -left-20 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"
         ></div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          >
+            <div class="reveal-left">
+              <span
+                class="inline-block px-3 py-1 text-xs font-bold text-blue-300 uppercase tracking-widest bg-white/10 rounded-full mb-6"
+                >Hubungi Kami</span
+              >
               <h2
-                class="font-jakarta text-3xl font-extrabold text-dark sm:text-5xl mb-6 leading-tight"
+                class="font-jakarta text-3xl font-extrabold text-white sm:text-5xl mb-6 leading-tight tracking-tight"
               >
                 Tertarik
-                <span class="text-brand">Kolaborasi?</span>
+                <span
+                  class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300"
+                  >Kolaborasi?</span
+                >
               </h2>
-              <p class="text-lg text-gray-600 mb-10 font-sans leading-relaxed">
-                Punya visi besar atau butuh solusi digital transformatif untuk
-                bisnis Anda? Jangan ragu untuk mendiskusikannya dengan tim kami.
-                <span class="font-bold text-dark">Bindala Tech</span>
-                berkomitmen mentransformasi visi Anda menjadi solusi digital
-                yang nyata dan presisi.
+              <p
+                class="text-base sm:text-lg text-slate-400 mb-10 font-sans leading-relaxed"
+              >
+                Punya visi besar atau butuh solusi digital transformatif?
+                Diskusikan langsung dengan kami.
+                <span class="font-bold text-white">Bindala Tech</span>
+                siap mewujudkan website impian bisnis Anda.
               </p>
 
-              <div class="space-y-8">
-                <div class="flex items-center group">
+              <div class="space-y-5">
+                <div
+                  class="flex items-center group bg-white/5 hover:bg-white/10 rounded-2xl p-4 transition-all duration-300 cursor-default border border-white/5 hover:border-white/15"
+                >
                   <div
-                    class="shrink-0 bg-blue-50 p-4 rounded-2xl text-brand group-hover:bg-brand group-hover:text-white transition-all duration-300"
+                    class="shrink-0 bg-brand/50 p-3 rounded-xl text-blue-300"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      class="h-5 w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -1054,25 +1666,29 @@
                       />
                     </svg>
                   </div>
-                  <div class="ml-5">
+                  <div class="ml-4">
                     <h3
-                      class="text-sm font-bold text-gray-400 uppercase tracking-widest"
+                      class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-0.5"
                     >
-                      Alamat Kami
+                      Alamat
                     </h3>
-                    <p class="text-dark font-medium">
-                      Jl. Letjend Pol. Soemarto No. 32 Purwanegara
+                    <p class="text-white font-medium text-sm">
+                      Jl. Letjend Pol. Soemarto No. 32, Purwanegara,
+                      Banjarnegara
                     </p>
                   </div>
                 </div>
 
-                <div class="flex items-center group">
+                <a
+                  href="mailto:admin@bindala.my.id"
+                  class="flex items-center group bg-white/5 hover:bg-white/10 rounded-2xl p-4 transition-all duration-300 border border-white/5 hover:border-white/15"
+                >
                   <div
-                    class="shrink-0 bg-blue-50 p-4 rounded-2xl text-brand group-hover:bg-brand group-hover:text-white transition-all duration-300"
+                    class="shrink-0 bg-brand/50 p-3 rounded-xl text-blue-300"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      class="h-5 w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -1085,27 +1701,31 @@
                       />
                     </svg>
                   </div>
-                  <div class="ml-5">
+                  <div class="ml-4">
                     <h3
-                      class="text-sm font-bold text-gray-400 uppercase tracking-widest"
+                      class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-0.5"
                     >
                       Email
                     </h3>
-                    <p class="text-dark font-medium">admin@bindala.my.id</p>
+                    <p
+                      class="text-blue-300 group-hover:text-blue-200 font-medium text-sm transition-colors"
+                    >
+                      admin@bindala.my.id
+                    </p>
                   </div>
-                </div>
+                </a>
 
                 <a
-                  href="https://wa.me/6283116031192"
+                  href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20ingin%20konsultasi%20website"
                   target="_blank"
-                  class="flex items-center group"
+                  class="flex items-center group bg-emerald-600/20 hover:bg-emerald-600/30 rounded-2xl p-4 transition-all duration-300 border border-emerald-600/30 hover:border-emerald-500/50"
                 >
                   <div
-                    class="shrink-0 bg-emerald-50 p-4 rounded-2xl text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300"
+                    class="shrink-0 bg-emerald-600/40 p-3 rounded-xl text-emerald-400"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      class="h-5 w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -1118,104 +1738,120 @@
                       />
                     </svg>
                   </div>
-                  <div class="ml-5">
+                  <div class="ml-4">
                     <h3
-                      class="text-sm font-bold text-gray-400 uppercase tracking-widest"
+                      class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-0.5"
                     >
-                      WhatsApp
+                      WhatsApp (Fast Response)
                     </h3>
-                    <p class="text-dark font-medium">+62 882 0064 38151</p>
+                    <p class="text-emerald-400 font-bold text-sm">
+                      +62 831 1603 1192
+                    </p>
                   </div>
                 </a>
               </div>
             </div>
 
-            <div
-              class="bg-gray-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-2xl shadow-slate-200/60"
-            >
-              <form action="#" class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1"
-                      >Nama Lengkap</label
-                    >
-                    <input
-                      type="text"
-                      placeholder="Nama Anda"
-                      class="block w-full rounded-2xl border-none bg-white py-4 px-6 shadow-sm ring-1 ring-slate-200 focus:ring-2 focus:ring-brand transition-all outline-none font-sans"
-                    />
+            <div class="reveal-right">
+              <div class="bg-white rounded-3xl p-7 sm:p-9 shadow-2xl">
+                <h3 class="font-jakarta text-xl font-bold text-dark mb-1">
+                  Kirim Pesan Cepat
+                </h3>
+                <p class="text-sm text-gray-500 mb-6">
+                  Pesan dikirim langsung via WhatsApp — respon dalam hitungan
+                  menit.
+                </p>
+
+                <form id="contact-form" class="space-y-4">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2"
+                        >Nama Lengkap <span class="text-red-500">*</span></label
+                      >
+                      <input
+                        type="text"
+                        required
+                        placeholder="Nama Anda"
+                        class="block w-full rounded-xl border-none bg-slate-50 py-3.5 px-4 ring-1 ring-slate-200 focus:ring-2 focus:ring-brand focus:bg-white transition-all outline-none font-sans text-sm text-gray-800 placeholder-gray-400"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2"
+                        >Email (Opsional)</label
+                      >
+                      <input
+                        type="email"
+                        placeholder="email@bisnis.com"
+                        class="block w-full rounded-xl border-none bg-slate-50 py-3.5 px-4 ring-1 ring-slate-200 focus:ring-2 focus:ring-brand focus:bg-white transition-all outline-none font-sans text-sm text-gray-800 placeholder-gray-400"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label
-                      class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1"
-                      >Email</label
+                      class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2"
+                      >Pesan / Kebutuhan
+                      <span class="text-red-500">*</span></label
                     >
-                    <input
-                      type="email"
-                      placeholder="Email Anda"
-                      class="block w-full rounded-2xl border-none bg-white py-4 px-6 shadow-sm ring-1 ring-slate-200 focus:ring-2 focus:ring-brand transition-all outline-none font-sans"
-                    />
+                    <textarea
+                      rows="4"
+                      required
+                      placeholder="Ceritakan rencana website atau pertanyaan bisnis Anda..."
+                      class="block w-full rounded-xl border-none bg-slate-50 py-3.5 px-4 ring-1 ring-slate-200 focus:ring-2 focus:ring-brand focus:bg-white transition-all outline-none font-sans text-sm text-gray-800 placeholder-gray-400 resize-none"
+                    ></textarea>
                   </div>
-                </div>
-                <div>
-                  <label
-                    class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1"
-                    >Pesan</label
+                  <button
+                    type="submit"
+                    class="w-full bg-brand hover:bg-secondary text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.01] active:scale-95 shadow-lg shadow-brand/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
                   >
-                  <textarea
-                    rows="4"
-                    placeholder="Jelaskan secara singkat rencana atau tantangan bisnis yang ingin Anda diskusikan..."
-                    class="block w-full rounded-2xl border-none bg-white py-4 px-6 shadow-sm ring-1 ring-slate-200 focus:ring-2 focus:ring-brand transition-all outline-none font-sans"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="w-full bg-brand hover:bg-secondary text-white font-extrabold py-5 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-xl shadow-slate-900/10 flex items-center justify-center space-x-2"
-                >
-                  <span>Kirim Pesan Sekarang</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
-                    />
-                  </svg>
-                </button>
-              </form>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                      />
+                    </svg>
+                    <span>Kirim via WhatsApp</span>
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- Footer -->
     <footer
-      class="bg-slate-950 text-gray-400 pt-20 pb-10 relative overflow-hidden"
+      class="bg-slate-950 text-gray-400 pt-16 sm:pt-20 pb-24 md:pb-10 relative overflow-hidden"
     >
       <div
-        class="absolute top-0 left-1/4 w-64 h-64 bg-blue-900/10 rounded-full blur-[100px]"
+        class="absolute top-0 left-1/4 w-64 h-64 bg-blue-900/10 rounded-full blur-[100px] pointer-events-none"
       ></div>
 
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 mb-16"
         >
-          <div class="space-y-6">
+          <div class="space-y-5">
             <div
               class="text-2xl font-jakarta font-extrabold tracking-tighter text-white"
             >
               BINDALA<span class="text-indigo-300"> TECH.</span>
             </div>
             <p class="text-sm leading-relaxed font-sans">
-              Hadirkan website profesional tanpa hambatan. Solusi digital
-              strategis bagi Anda yang ingin meningkatkan performa bisnis dan
-              daya saing di ekosistem digital.
+              Hadirkan website profesional berkinerja tinggi tanpa hambatan.
+              Solusi digital strategis untuk meningkatkan performa bisnis dan
+              daya saing di era digital.
             </p>
             <div class="flex space-x-4">
               <a
                 href="#"
+                aria-label="Instagram Bindala"
                 class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-secondary hover:text-white hover:border-slate-600 transition-all duration-300"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -1226,6 +1862,8 @@
               </a>
               <a
                 href="https://github.com/Bagus550"
+                target="_blank"
+                aria-label="GitHub Bagus"
                 class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-secondary hover:text-white hover:border-slate-600 transition-all duration-300"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -1238,111 +1876,192 @@
           </div>
 
           <div>
-            <h4 class="text-white font-bold mb-7 relative inline-block">
+            <h4 class="text-white font-bold mb-5 sm:mb-7 relative inline-block">
               Navigasi
               <span
                 class="absolute -bottom-2 left-0 w-8 h-1 bg-indigo-400/80 rounded-full"
               ></span>
             </h4>
-            <ul class="space-y-4 text-sm font-sans">
+            <ul class="space-y-3.5 text-sm font-sans">
               <li>
                 <a
                   href="#home"
-                  class="flex items-center hover:text-white hover:translate-x-2 transition-all duration-300"
+                  class="flex items-center hover:text-white hover:translate-x-1.5 transition-all duration-300"
                 >
-                  <span class="mr-2">→</span> Home</a
+                  <span class="mr-2 text-indigo-400">→</span> Home</a
                 >
               </li>
               <li>
                 <a
                   href="#services"
-                  class="flex items-center hover:text-white hover:translate-x-2 transition-all duration-300"
+                  class="flex items-center hover:text-white hover:translate-x-1.5 transition-all duration-300"
                 >
-                  <span class="mr-2">→</span> Services</a
+                  <span class="mr-2 text-indigo-400">→</span> Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="flex items-center hover:text-white hover:translate-x-1.5 transition-all duration-300"
+                >
+                  <span class="mr-2 text-indigo-400">→</span> Pricing & Paket</a
                 >
               </li>
               <li>
                 <a
                   href="#portfolio"
-                  class="flex items-center hover:text-white hover:translate-x-2 transition-all duration-300"
+                  class="flex items-center hover:text-white hover:translate-x-1.5 transition-all duration-300"
                 >
-                  <span class="mr-2">→</span> Portfolio</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-white font-bold mb-7 relative inline-block">
-              Layanan
-              <span
-                class="absolute -bottom-2 left-0 w-8 h-1 bg-indigo-400/80 rounded-full"
-              ></span>
-            </h4>
-            <ul class="space-y-4 text-sm font-sans">
-              <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >Company Profile</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >E-Commerce</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >Custom Web Apps</a
+                  <span class="mr-2 text-indigo-400">→</span> Portfolio</a
                 >
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 class="text-white font-bold mb-7 relative inline-block">
-              Terms & Legal
+            <h4 class="text-white font-bold mb-5 sm:mb-7 relative inline-block">
+              Layanan Kami
               <span
                 class="absolute -bottom-2 left-0 w-8 h-1 bg-indigo-400/80 rounded-full"
               ></span>
             </h4>
-            <ul class="space-y-4 text-sm font-sans">
+            <ul class="space-y-3.5 text-sm font-sans">
               <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >Terms of Service</a
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Company Profile Profesional</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >Privacy Policy</a
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Toko Online E-Commerce</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >Refund Policy</a
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Custom Web Applications</a
                 >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Maintenance & Optimasi SEO</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-bold mb-5 sm:mb-7 relative inline-block">
+              Legalitas & Hubungi
+              <span
+                class="absolute -bottom-2 left-0 w-8 h-1 bg-indigo-400/80 rounded-full"
+              ></span>
+            </h4>
+            <ul class="space-y-3.5 text-sm font-sans">
+              <li>
+                <span class="text-gray-300 font-medium block"
+                  >Bindala Solusi Teknologi</span
+                >
+                <span class="text-xs text-gray-500"
+                  >Madukara, Banjarnegara, Jawa Tengah</span
+                >
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/6283116031192"
+                  target="_blank"
+                  class="text-emerald-400 hover:text-emerald-300 transition-colors"
+                >
+                  WA: +62 831 1603 1192
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:admin@bindala.my.id"
+                  class="text-gray-400 hover:text-white transition-colors"
+                >
+                  admin@bindala.my.id
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         <div
-          class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs text-gray-500 font-sans tracking-widest uppercase"
+          class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs text-gray-500 font-sans tracking-widest uppercase gap-3 text-center md:text-left"
         >
           <p>
             © 2026
-            <span class="text-gray-300 font-bold">Bindala Solusi Teknologi</span>.
-            All rights reserved.
+            <span class="text-gray-300 font-bold">Bindala Solusi Teknologi</span
+            >. All rights reserved.
           </p>
-          <p class="mt-4 md:mt-0 flex items-center">
-            Designed by <span class="mx-1 text-indigo-300 font-bold">Bindala Solusi Teknologi</span>
+          <p class="flex items-center justify-center">
+            Designed with excellence by
+            <span class="mx-1 text-indigo-300 font-bold">Bindala Tech</span>
           </p>
         </div>
       </div>
     </footer>
 
+    <!-- Floating Quick Action on Mobile (Sticky Bottom Bar) -->
+    <div
+      id="mobile-floating-cta"
+      class="fixed bottom-4 left-4 right-4 z-40 md:hidden flex items-center justify-between gap-3 bg-white/95 backdrop-blur-md p-2.5 pl-4 rounded-2xl shadow-2xl border border-slate-200/80"
+    >
+      <div class="flex items-center gap-2.5">
+        <div class="relative flex h-3 w-3">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"
+          ></span>
+        </div>
+        <div class="text-left">
+          <p class="font-bold text-dark text-xs leading-tight">
+            Konsultasi Gratis
+          </p>
+          <p class="text-[10px] text-gray-500 leading-none">
+            Online via WhatsApp
+          </p>
+        </div>
+      </div>
+      <a
+        href="https://wa.me/6283116031192?text=Halo%20Bindala%20Tech,%20saya%20ingin%20konsultasi%20website"
+        target="_blank"
+        class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md flex items-center gap-1.5 transition-all active:scale-95 pulse-wa"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+          />
+        </svg>
+        <span>Chat WA</span>
+      </a>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button
+      id="back-to-top"
+      type="button"
+      aria-label="Kembali ke atas"
+      class="fixed bottom-20 md:bottom-8 right-5 z-40 p-3.5 bg-brand text-white rounded-full shadow-xl hover:bg-secondary hover:shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none cursor-pointer"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2.5"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </button>
+
     <!-- Clean Architecture: Modular Script -->
     <script src="./src/js/main.js" defer></script>
   </body>
 </html>
-
-
