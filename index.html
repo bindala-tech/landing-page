@@ -91,6 +91,62 @@
         "openingHours": "Mo-Sa 08:00-18:00"
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Berapa lama proses pembuatan website sampai siap online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Untuk paket Starter dan Standard pengerjaan umumnya memakan waktu 3 hingga 7 hari kerja. Untuk paket Professional atau aplikasi web kustom membutuhkan waktu 10 hingga 14 hari kerja."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah ada biaya perpanjangan tahunan (renewal) di tahun ke-2?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya, pada tahun pertama domain dan cloud hosting sudah gratis. Di tahun ke-2 dan seterusnya, biaya perpanjangan mulai dari Rp 350.000 – Rp 650.000/tahun sudah termasuk pemeliharaan dasar dan backup rutin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bagaimana jika saya belum punya materi konten (teks & foto)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tim Bindala Tech siap membantu menyusun copywriting profesional yang menarik pembeli serta mencarikan aset foto beresolusi tinggi bebas lisensi yang sesuai dengan sektor usaha Anda."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah website responsif di HP dan terindeks di Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "100% Ya. Seluruh website dirancang responsif (mobile-first) dan dioptimasi struktur SEO dasarnya termasuk integrasi Google Search Console dan sitemap XML agar mudah ditemukan di Google."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bagaimana sistem pembayaran dan alur pemesanannya?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Konsultasi kebutuhan bersama Minda via WhatsApp, lalu pembayaran DP 50% di awal untuk pengerjaan, dan pelunasan 50% setelah website selesai di-review dan siap online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah ada garansi jika website mengalami error atau kendala teknis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tentu ada garansi penuh. Jika terjadi bug teknis, tampilan rusak, atau kendala server, tim kami siap memperbaikinya secepat mungkin tanpa biaya tambahan selama masa garansi aktif."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body
     class="bg-white text-gray-800 antialiased selection:bg-brand selection:text-white"
@@ -139,6 +195,11 @@
                 href="#testimoni"
                 class="px-2 py-1 text-sm font-semibold text-gray-600 hover:text-brand transition-colors"
                 >Testimoni</a
+              >
+              <a
+                href="#faq"
+                class="px-2 py-1 text-sm font-semibold text-gray-600 hover:text-brand transition-colors"
+                >FAQ</a
               >
               <a
                 href="#contact"
@@ -327,6 +388,25 @@
               />
             </svg>
             Testimoni
+          </a>
+          <a
+            href="#faq"
+            class="sidebar-link flex items-center gap-3 rounded-xl px-4 py-3 text-base font-bold text-gray-700 hover:bg-brand-light hover:text-brand active:scale-[0.98] transition-all"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            FAQ
           </a>
         </nav>
       </div>
@@ -1599,6 +1679,343 @@
         </div>
       </section>
 
+      <!-- FAQ Section -->
+      <section
+        id="faq"
+        class="py-20 sm:py-24 bg-white relative overflow-hidden border-t border-slate-100"
+      >
+        <div
+          class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-brand-light/50 rounded-full blur-3xl pointer-events-none"
+        ></div>
+
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="reveal text-center mb-14 sm:mb-16">
+            <span
+              class="inline-block px-3 py-1 text-xs font-bold text-brand uppercase tracking-widest bg-brand-light rounded-full mb-4"
+              >Tanya Jawab</span
+            >
+            <h2
+              class="font-jakarta text-3xl font-extrabold text-dark sm:text-5xl tracking-tight"
+            >
+              Pertanyaan yang <span class="text-brand">Sering Diajukan</span>
+            </h2>
+            <p
+              class="mt-4 text-base sm:text-lg text-gray-500 font-sans max-w-2xl mx-auto"
+            >
+              Punya pertanyaan seputar layanan kami? Temukan jawaban ringkas
+              mengenai proses pengerjaan, biaya, hingga dukungan teknis berikut
+              ini.
+            </p>
+          </div>
+
+          <!-- FAQ Accordion List -->
+          <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <details
+              class="faq-item reveal group bg-surface/80 hover:bg-surface rounded-2xl border border-slate-200/80 p-5 sm:p-6 transition-all duration-300"
+            >
+              <summary
+                class="flex items-center justify-between cursor-pointer select-none gap-4"
+              >
+                <span
+                  class="font-jakarta font-bold text-base sm:text-lg text-dark group-hover:text-brand transition-colors"
+                >
+                  Berapa lama proses pembuatan website sampai siap online?
+                </span>
+                <span
+                  class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-gray-500 transition-transform duration-300 shadow-xs"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-4 pt-4 border-t border-slate-200/60 text-sm sm:text-base text-gray-600 leading-relaxed font-sans"
+              >
+                Untuk paket <strong class="text-dark">Starter</strong> dan
+                <strong class="text-dark">Standard</strong>, pengerjaan umumnya
+                memakan waktu
+                <strong class="text-brand">3 hingga 7 hari kerja</strong>
+                setelah materi konten (teks & gambar) kami terima. Untuk paket
+                <strong class="text-dark">Professional</strong> atau aplikasi
+                web kustom dengan fitur khusus, waktu pengerjaan berkisar antara
+                <strong class="text-brand">10 hingga 14 hari kerja</strong>.
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details
+              class="faq-item reveal delay-100 group bg-surface/80 hover:bg-surface rounded-2xl border border-slate-200/80 p-5 sm:p-6 transition-all duration-300"
+            >
+              <summary
+                class="flex items-center justify-between cursor-pointer select-none gap-4"
+              >
+                <span
+                  class="font-jakarta font-bold text-base sm:text-lg text-dark group-hover:text-brand transition-colors"
+                >
+                  Apakah ada biaya perpanjangan tahunan (renewal) di tahun ke-2?
+                </span>
+                <span
+                  class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-gray-500 transition-transform duration-300 shadow-xs"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-4 pt-4 border-t border-slate-200/60 text-sm sm:text-base text-gray-600 leading-relaxed font-sans"
+              >
+                <strong class="text-dark"
+                  >Ya, namun biayanya sangat terjangkau.</strong
+                >
+                Pada tahun pertama, domain dan cloud hosting sudah gratis
+                termasuk dalam paket Anda. Di tahun ke-2 dan seterusnya, Anda
+                hanya perlu membayar biaya perpanjangan domain & hosting mulai
+                dari
+                <strong class="text-brand"
+                  >Rp 350.000 – Rp 650.000/tahun</strong
+                >
+                (tergantung paket & ekstensi domain pilihan Anda). Biaya ini
+                sudah mencakup monitoring server, pembaruan keamanan, dan backup
+                berkala dari tim Bindala Tech.
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details
+              class="faq-item reveal delay-200 group bg-surface/80 hover:bg-surface rounded-2xl border border-slate-200/80 p-5 sm:p-6 transition-all duration-300"
+            >
+              <summary
+                class="flex items-center justify-between cursor-pointer select-none gap-4"
+              >
+                <span
+                  class="font-jakarta font-bold text-base sm:text-lg text-dark group-hover:text-brand transition-colors"
+                >
+                  Bagaimana jika saya belum punya materi konten (teks & foto)?
+                </span>
+                <span
+                  class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-gray-500 transition-transform duration-300 shadow-xs"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-4 pt-4 border-t border-slate-200/60 text-sm sm:text-base text-gray-600 leading-relaxed font-sans"
+              >
+                <strong class="text-dark"
+                  >Jangan khawatir, kami siap membantu!</strong
+                >
+                Jika Anda belum memiliki materi tertulis, tim kami bisa membantu
+                menyusun teks copywriting yang menarik dan menjual, serta
+                mencarikan aset foto beresolusi tinggi (bebas hak cipta) yang
+                relevan dengan bidang usaha Anda tanpa biaya tambahan.
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details
+              class="faq-item reveal delay-300 group bg-surface/80 hover:bg-surface rounded-2xl border border-slate-200/80 p-5 sm:p-6 transition-all duration-300"
+            >
+              <summary
+                class="flex items-center justify-between cursor-pointer select-none gap-4"
+              >
+                <span
+                  class="font-jakarta font-bold text-base sm:text-lg text-dark group-hover:text-brand transition-colors"
+                >
+                  Apakah website responsif di HP dan terindeks di Google?
+                </span>
+                <span
+                  class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-gray-500 transition-transform duration-300 shadow-xs"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-4 pt-4 border-t border-slate-200/60 text-sm sm:text-base text-gray-600 leading-relaxed font-sans"
+              >
+                <strong class="text-dark">100% Ya.</strong> Seluruh website yang
+                kami bangun dirancang dengan prinsip
+                <em class="text-brand not-italic font-semibold"
+                  >Mobile-First</em
+                >
+                sehingga tampil rapi dan sangat cepat dibuka dari smartphone,
+                tablet, maupun komputer. Kami juga sudah menyertakan konfigurasi
+                Google Search Console, peta situs XML (sitemap), dan optimasi
+                meta tag SEO dasar agar website Anda siap terindeks oleh mesin
+                pencari Google.
+              </div>
+            </details>
+
+            <!-- FAQ Item 5 -->
+            <details
+              class="faq-item reveal delay-400 group bg-surface/80 hover:bg-surface rounded-2xl border border-slate-200/80 p-5 sm:p-6 transition-all duration-300"
+            >
+              <summary
+                class="flex items-center justify-between cursor-pointer select-none gap-4"
+              >
+                <span
+                  class="font-jakarta font-bold text-base sm:text-lg text-dark group-hover:text-brand transition-colors"
+                >
+                  Bagaimana sistem pembayaran dan alur pemesanannya?
+                </span>
+                <span
+                  class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-gray-500 transition-transform duration-300 shadow-xs"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-4 pt-4 border-t border-slate-200/60 text-sm sm:text-base text-gray-600 leading-relaxed font-sans"
+              >
+                Alurnya sangat mudah: Anda cukup klik tombol
+                <strong class="text-dark">Chat Minda</strong> via WhatsApp untuk
+                konsultasi awal. Setelah menyepakati paket dan konsep desain,
+                Anda membayar <strong class="text-brand">DP 50%</strong> untuk
+                memulai pengerjaan. Pelunasan sisa
+                <strong class="text-brand">50%</strong> dibayarkan setelah
+                website selesai Anda review dan siap di-publish ke domain resmi
+                Anda.
+              </div>
+            </details>
+
+            <!-- FAQ Item 6 -->
+            <details
+              class="faq-item reveal delay-500 group bg-surface/80 hover:bg-surface rounded-2xl border border-slate-200/80 p-5 sm:p-6 transition-all duration-300"
+            >
+              <summary
+                class="flex items-center justify-between cursor-pointer select-none gap-4"
+              >
+                <span
+                  class="font-jakarta font-bold text-base sm:text-lg text-dark group-hover:text-brand transition-colors"
+                >
+                  Apakah ada garansi jika website mengalami error atau kendala
+                  teknis?
+                </span>
+                <span
+                  class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-gray-500 transition-transform duration-300 shadow-xs"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="mt-4 pt-4 border-t border-slate-200/60 text-sm sm:text-base text-gray-600 leading-relaxed font-sans"
+              >
+                <strong class="text-dark">Tentu saja ada garansi penuh.</strong>
+                Jika ada kendala tampilan berantakan, broken link, atau kendala
+                server setelah website live, tim kami siap memperbaikinya
+                secepat mungkin tanpa biaya tambahan selama masa garansi aktif.
+                Kepuasan dan kelancaran bisnis Anda adalah prioritas kami.
+              </div>
+            </details>
+          </div>
+
+          <!-- FAQ Help Box -->
+          <!-- <div
+            class="reveal delay-300 mt-12 bg-linear-to-br from-brand/5 via-brand-light/30 to-blue-50/50 rounded-3xl p-6 sm:p-8 border border-brand/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left"
+          >
+            <div>
+              <h3 class="font-jakarta text-lg sm:text-xl font-bold text-dark">
+                Masih punya pertanyaan lain seputar website Anda?
+              </h3>
+              <p class="text-sm text-gray-600 mt-1 font-sans">
+                Admin kami (Minda) siap menjawab dan memberikan saran terbaik
+                secara gratis tanpa komitmen.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/62882006438151?text=Halo%20Minda,%20saya%20mau%20tanya-tanya%20dulu%20soal%20jasa%20pembuatan%20website"
+              target="_blank"
+              class="shrink-0 inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-emerald-900/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
+              <span>Chat Minda Sekarang</span>
+            </a>
+          </div> -->
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section
         id="contact"
@@ -1919,6 +2336,14 @@
                   <span class="mr-2 text-indigo-400">→</span> Portfolio</a
                 >
               </li>
+              <li>
+                <a
+                  href="#faq"
+                  class="flex items-center hover:text-white hover:translate-x-1.5 transition-all duration-300"
+                >
+                  <span class="mr-2 text-indigo-400">→</span> FAQ</a
+                >
+              </li>
             </ul>
           </div>
 
@@ -1975,7 +2400,7 @@
                   target="_blank"
                   class="text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  WA: +62 882 0064 38151
+                  WA: Minda
                 </a>
               </li>
               <li>

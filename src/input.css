@@ -218,3 +218,20 @@ body {
 .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
 .pb-5 { padding-bottom: 1.25rem; }
 .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+
+/* FAQ Accordion Styles */
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+details.faq-item summary {
+  list-style: none;
+}
+details.faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+  background-color: #0f172a;
+  color: #ffffff;
+}
+details.faq-item[open] {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+}

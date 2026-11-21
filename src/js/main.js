@@ -176,7 +176,23 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateActiveNavLink, { passive: true });
 
   // ==========================================
-  // 6. CONTACT FORM INTERACTION (WhatsApp Connect)
+  // 6. FAQ ACCORDION INTERACTION
+  // ==========================================
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (item.open) {
+        faqItems.forEach((other) => {
+          if (other !== item && other.open) {
+            other.removeAttribute("open");
+          }
+        });
+      }
+    });
+  });
+
+  // ==========================================
+  // 7. CONTACT FORM INTERACTION (WhatsApp Connect)
   // ==========================================
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
