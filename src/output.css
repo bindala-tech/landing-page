@@ -2871,3 +2871,31 @@ details.faq-item[open] {
   border-color: #cbd5e1;
   box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
 }
+
+/* Legal Modal Utilities & Scroll Fix */
+.max-h-\[88vh\] {
+  max-height: 88vh;
+  max-height: 88dvh;
+}
+.overflow-y-auto {
+  overflow-y: auto;
+}
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+.min-h-0 {
+  min-height: 0px;
+}
+#legal-modal .modal-card {
+  max-height: 88vh;
+  max-height: 88dvh;
+  display: flex;
+  flex-direction: column;
+}
+#legal-modal .modal-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}

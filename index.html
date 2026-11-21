@@ -2282,9 +2282,9 @@
                 </svg>
               </a>
               <a
-                href="https://github.com/Bagus550"
+                href="https://github.com/bindala-tech"
                 target="_blank"
-                aria-label="GitHub Bagus"
+                aria-label="GitHub Bindala Tech"
                 class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-secondary hover:text-white hover:border-slate-600 transition-all duration-300"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -2395,12 +2395,31 @@
                 >
               </li>
               <li>
+                <button
+                  type="button"
+                  id="open-terms-btn"
+                  class="text-gray-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Syarat & Ketentuan Layanan
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  id="open-privacy-btn"
+                  class="text-gray-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Kebijakan Privasi
+                </button>
+              </li>
+              <li>
                 <a
                   href="https://wa.me/62882006438151"
                   target="_blank"
-                  class="text-emerald-400 hover:text-emerald-300 transition-colors"
+                  class="text-emerald-400 hover:text-emerald-300 transition-colors inline-flex items-center gap-1.5"
                 >
-                  WA: Minda
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  WA: Minda (0882-0064-38151)
                 </a>
               </li>
               <li>
@@ -2418,11 +2437,32 @@
         <div
           class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs text-gray-500 font-sans tracking-widest uppercase gap-3 text-center md:text-left"
         >
-          <p>
-            © 2026
-            <span class="text-gray-300 font-bold">Bindala Solusi Teknologi</span
-            >. All rights reserved.
-          </p>
+          <div
+            class="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1"
+          >
+            <p>
+              © 2026
+              <span class="text-gray-300 font-bold"
+                >Bindala Solusi Teknologi</span
+              >. All rights reserved.
+            </p>
+            <span class="hidden sm:inline text-slate-700">•</span>
+            <button
+              type="button"
+              id="btn-terms-bottom"
+              class="hover:text-gray-300 transition-colors cursor-pointer underline sm:no-underline"
+            >
+              Syarat & Ketentuan
+            </button>
+            <span class="text-slate-700">•</span>
+            <button
+              type="button"
+              id="btn-privacy-bottom"
+              class="hover:text-gray-300 transition-colors cursor-pointer underline sm:no-underline"
+            >
+              Kebijakan Privasi
+            </button>
+          </div>
           <p class="flex items-center justify-center">
             Designed with excellence by
             <span class="mx-1 text-indigo-300 font-bold">Bindala Tech</span>
@@ -2489,6 +2529,305 @@
         />
       </svg>
     </button>
+
+    <!-- Legal Modal: Terms of Service & Privacy Policy -->
+    <div
+      id="legal-modal"
+      class="fixed inset-0 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300"
+      style="z-index: 9999"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="legal-modal-title"
+    >
+      <div
+        class="modal-card bg-white rounded-3xl max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-slate-100 overflow-hidden transform transition-all duration-300"
+      >
+        <!-- Modal Header -->
+        <div
+          class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/70"
+        >
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-xl bg-brand text-white shrink-0">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3
+                id="legal-modal-title"
+                class="font-jakarta text-base sm:text-lg font-bold text-dark leading-tight"
+              >
+                Ketentuan & Kebijakan
+              </h3>
+              <p class="text-xs text-gray-500 font-sans">
+                Bindala Solusi Teknologi
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            id="close-legal-modal"
+            aria-label="Tutup Jendela"
+            class="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-colors cursor-pointer"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Modal Tab Switcher -->
+        <div
+          class="flex border-b border-slate-200 bg-white px-5 sm:px-6 pt-3 gap-2"
+        >
+          <button
+            type="button"
+            id="tab-terms-btn"
+            class="pb-3 px-3 text-xs sm:text-sm font-bold border-b-2 border-brand text-brand transition-colors cursor-pointer"
+          >
+            Syarat & Ketentuan
+          </button>
+          <button
+            type="button"
+            id="tab-privacy-btn"
+            class="pb-3 px-3 text-xs sm:text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-dark transition-colors cursor-pointer"
+          >
+            Kebijakan Privasi
+          </button>
+        </div>
+
+        <!-- Modal Content (Scrollable) -->
+        <div
+          class="modal-body p-6 sm:p-7 overflow-y-auto overscroll-contain font-sans text-xs sm:text-sm text-gray-600 space-y-4 leading-relaxed"
+        >
+          <!-- Terms Content -->
+          <div id="content-terms" class="space-y-4">
+            <div
+              class="p-3.5 bg-blue-50/70 border border-blue-100 rounded-xl text-xs text-blue-900 leading-normal"
+            >
+              <strong>Ringkasan:</strong> Ketentuan ini mengatur seluruh layanan
+              pembuatan website oleh
+              <strong>Bindala Tech (Bindala Solusi Teknologi)</strong>, baik
+              proyek berbayar maupun program kemitraan subdomain gratis untuk
+              UMKM.
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                1. Ruang Lingkup Layanan
+              </h4>
+              <p>
+                Bindala Tech menyediakan jasa perancangan, pengembangan website,
+                pendaftaran domain, penyediaan hosting, dan pemeliharaan teknis
+                sesuai dengan paket yang dipilih oleh Klien.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                2. Program Subdomain & Landing Page UMKM
+              </h4>
+              <p>
+                Khusus program pembuatan landing page gratis bersubdomain
+                (contoh: <em>namatoko.bindala.my.id</em>):
+              </p>
+              <ul
+                class="list-disc list-inside mt-1.5 space-y-1 pl-1 text-gray-600"
+              >
+                <li>
+                  <strong class="text-dark">Kepemilikan:</strong> Nama domain
+                  utama <em>bindala.my.id</em> beserta seluruh subdomain
+                  merupakan aset milik Bindala Tech.
+                </li>
+                <li>
+                  <strong class="text-red-600">Larangan Konten Ilegal:</strong>
+                  Dilarang keras memuat konten perjudian (slot/judi daring),
+                  penipuan (scam/phishing), obat-obatan terlarang, produk
+                  bajakan, materi pornografi, atau konten yang melanggar hukum
+                  Republik Indonesia.
+                </li>
+                <li>
+                  <strong class="text-dark">Hak Penonaktifan:</strong> Bindala
+                  Tech berhak menghapus atau menonaktifkan subdomain seketika
+                  secara sepihak jika ditemukan indikasi pelanggaran hukum atau
+                  etika.
+                </li>
+                <li>
+                  <strong class="text-dark">Atribusi/Watermark:</strong> Wajib
+                  menyertakan teks atribusi
+                  <em>"Powered by Bindala Tech"</em> di bagian footer dan tidak
+                  boleh disembunyikan.
+                </li>
+                <li>
+                  <strong class="text-dark">Revisi & Materi:</strong> Revisi
+                  dibatasi maksimal 1 kali minor. Materi wajib dikirimkan dalam
+                  kurun waktu 3 hari kerja setelah pendaftaran.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                3. Materi, Konten, & Hak Cipta
+              </h4>
+              <p>
+                Klien bertanggung jawab penuh atas keabsahan seluruh materi yang
+                diserahkan (logo, teks, gambar, foto produk). Klien membebaskan
+                Bindala Tech dari segala tuntutan hukum pihak ketiga atas
+                pelanggaran hak cipta materi tersebut.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                4. Pembayaran & Pelunasan Proyek
+              </h4>
+              <p>
+                Untuk proyek berbayar, pengerjaan dimulai setelah pembayaran
+                Uang Muka (DP) sebesar 50%. Pelunasan sisa 50% wajib dilakukan
+                setelah website selesai di-review dan sebelum penyerahan akses
+                penuh atau penayangan ke domain resmi.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                5. Garansi & Pemeliharaan
+              </h4>
+              <p>
+                Kami memberikan garansi perbaikan bug teknis, link rusak, atau
+                tampilan yang berantakan selama masa garansi aktif tanpa biaya
+                tambahan.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                6. Portofolio & Publikasi
+              </h4>
+              <p>
+                Bindala Tech berhak mencantumkan hasil karya website dan nama
+                bisnis Klien pada daftar portofolio kami untuk keperluan promosi
+                dan referensi karya.
+              </p>
+            </div>
+          </div>
+
+          <!-- Privacy Content -->
+          <div id="content-privacy" class="space-y-4 hidden">
+            <div
+              class="p-3.5 bg-emerald-50/70 border border-emerald-100 rounded-xl text-xs text-emerald-900 leading-normal"
+            >
+              <strong>Komitmen Privasi:</strong> Kami menghargai dan melindungi
+              kerahasiaan data pribadi serta data bisnis Anda dengan standar
+              keamanan tinggi.
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                1. Informasi yang Kami Kumpulkan
+              </h4>
+              <p>
+                Kami hanya mengumpulkan informasi yang Anda berikan secara
+                sukarela saat berkonsultasi atau memesan layanan, meliputi:
+              </p>
+              <ul class="list-disc list-inside mt-1.5 space-y-1 pl-1">
+                <li>
+                  Nama lengkap dan kontak (Nomor WhatsApp & Alamat Email).
+                </li>
+                <li>Nama bisnis, profil usaha, dan alamat lokasi usaha.</li>
+                <li>
+                  Materi teks, foto produk, dan aset grafis untuk kebutuhan
+                  website.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                2. Penggunaan Informasi
+              </h4>
+              <p>Informasi yang terkumpul digunakan khusus untuk:</p>
+              <ul class="list-disc list-inside mt-1.5 space-y-1 pl-1">
+                <li>Komunikasi pengerjaan dan revisi proyek website.</li>
+                <li>
+                  Kebutuhan administrasi, penagihan invoice, dan pendaftaran
+                  domain resmi.
+                </li>
+                <li>Penyampaian pengingat perpanjangan tahunan (renewal).</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                3. Jaminan Keamanan & Kerahasiaan
+              </h4>
+              <p>
+                <strong class="text-dark"
+                  >Kami tidak akan pernah menjual, menyewakan, atau
+                  membagikan</strong
+                >
+                informasi pribadi maupun rahasia bisnis Anda kepada pihak ketiga
+                mana pun tanpa persetujuan tertulis dari Anda.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-dark text-sm sm:text-base mb-1.5">
+                4. Akses & Pembaruan Data
+              </h4>
+              <p>
+                Anda berhak memperbarui, memperbaiki, atau meminta penghapusan
+                riwayat data kontak Anda dari sistem kami kapan saja dengan
+                menghubungi Admin Minda.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div
+          class="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
+        >
+          <p class="text-gray-500 text-center sm:text-left">
+            Butuh klarifikasi ketentuan?
+            <a
+              href="https://wa.me/62882006438151"
+              target="_blank"
+              class="text-brand font-bold hover:underline"
+              >Tanya Minda via WA</a
+            >
+          </p>
+          <button
+            type="button"
+            id="btn-close-legal-action"
+            class="w-full sm:w-auto px-5 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-secondary transition-all cursor-pointer"
+          >
+            Saya Mengerti
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Clean Architecture: Modular Script -->
     <script src="./src/js/main.js" defer></script>

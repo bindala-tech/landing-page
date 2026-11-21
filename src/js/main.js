@@ -219,4 +219,85 @@ document.addEventListener("DOMContentLoaded", () => {
       window.open(`https://wa.me/62882006438151?text=${waText}`, "_blank");
     });
   }
+
+  // ==========================================
+  // 8. LEGAL MODAL (Terms & Privacy Policy)
+  // ==========================================
+  const legalModal = document.getElementById("legal-modal");
+  const openTermsBtn = document.getElementById("open-terms-btn");
+  const openPrivacyBtn = document.getElementById("open-privacy-btn");
+  const btnTermsBottom = document.getElementById("btn-terms-bottom");
+  const btnPrivacyBottom = document.getElementById("btn-privacy-bottom");
+  const closeLegalModalBtn = document.getElementById("close-legal-modal");
+  const btnCloseLegalAction = document.getElementById("btn-close-legal-action");
+
+  const tabTermsBtn = document.getElementById("tab-terms-btn");
+  const tabPrivacyBtn = document.getElementById("tab-privacy-btn");
+  const contentTerms = document.getElementById("content-terms");
+  const contentPrivacy = document.getElementById("content-privacy");
+
+  function switchLegalTab(tab) {
+    if (!tabTermsBtn || !tabPrivacyBtn || !contentTerms || !contentPrivacy) return;
+    if (tab === "terms") {
+      tabTermsBtn.classList.add("border-brand", "text-brand", "font-bold");
+      tabTermsBtn.classList.remove("border-transparent", "text-gray-500", "font-medium");
+      tabPrivacyBtn.classList.remove("border-brand", "text-brand", "font-bold");
+      tabPrivacyBtn.classList.add("border-transparent", "text-gray-500", "font-medium");
+
+      contentTerms.classList.remove("hidden");
+      contentPrivacy.classList.add("hidden");
+    } else {
+      tabPrivacyBtn.classList.add("border-brand", "text-brand", "font-bold");
+      tabPrivacyBtn.classList.remove("border-transparent", "text-gray-500", "font-medium");
+      tabTermsBtn.classList.remove("border-brand", "text-brand", "font-bold");
+      tabTermsBtn.classList.add("border-transparent", "text-gray-500", "font-medium");
+
+      contentPrivacy.classList.remove("hidden");
+      contentTerms.classList.add("hidden");
+    }
+  }
+
+  function openLegalModal(tab = "terms") {
+    if (!legalModal) return;
+    switchLegalTab(tab);
+    legalModal.classList.remove("hidden");
+    legalModal.classList.add("flex");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLegalModal() {
+    if (!legalModal) return;
+    legalModal.classList.add("hidden");
+    legalModal.classList.remove("flex");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  }
+
+  if (openTermsBtn) openTermsBtn.addEventListener("click", () => openLegalModal("terms"));
+  if (btnTermsBottom) btnTermsBottom.addEventListener("click", () => openLegalModal("terms"));
+  if (openPrivacyBtn) openPrivacyBtn.addEventListener("click", () => openLegalModal("privacy"));
+  if (btnPrivacyBottom) btnPrivacyBottom.addEventListener("click", () => openLegalModal("privacy"));
+
+  if (closeLegalModalBtn) closeLegalModalBtn.addEventListener("click", closeLegalModal);
+  if (btnCloseLegalAction) btnCloseLegalAction.addEventListener("click", closeLegalModal);
+
+  if (tabTermsBtn) tabTermsBtn.addEventListener("click", () => switchLegalTab("terms"));
+  if (tabPrivacyBtn) tabPrivacyBtn.addEventListener("click", () => switchLegalTab("privacy"));
+
+  // Close when clicking modal backdrop
+  if (legalModal) {
+    legalModal.addEventListener("click", (e) => {
+      if (e.target === legalModal) {
+        closeLegalModal();
+      }
+    });
+  }
+
+  // Handle ESC key for modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && legalModal && !legalModal.classList.contains("hidden")) {
+      closeLegalModal();
+    }
+  });
 });
