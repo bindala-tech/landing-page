@@ -196,11 +196,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const waText = encodeURIComponent(
-        `Halo Bindala Tech,\n\nNama: ${name}\nEmail: ${email || "-"}\n\nPesan: ${message}\n\nSaya ingin konsultasi pembuatan website.`
+        `Halo Minda & Tim Bindala Tech,\n\nNama: ${name}\nEmail: ${email || "-"}\n\nPesan: ${message}\n\nSaya mau konsultasi pembuatan website.`
       );
 
       // Open WhatsApp with prefilled message
-      window.open(`https://wa.me/6283116031192?text=${waText}`, "_blank");
+      window.open(`https://wa.me/62882006438151?text=${waText}`, "_blank");
     });
   }
 });
